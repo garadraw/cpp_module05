@@ -6,15 +6,14 @@
 /*   By: vsimeono <vsimeono@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 21:59:31 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/11/15 18:37:23 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:24:17 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string name, unsigned int grade)
+Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
-	(void)name;
 	if (grade > 150)
 		throw Bureaucrat::GradeLow();
 	else if (grade < 1)
@@ -23,9 +22,9 @@ Bureaucrat::Bureaucrat(const std::string name, unsigned int grade)
 	std::cout << "Bureaucrat" << _name << " was Created " << std::endl; 
 }
 
-Bureaucrat::Bureaucrat(): _name("MediumBiro"), _grade(75)
+Bureaucrat::Bureaucrat(): _name("MediumBiro"), _grade(150)
 {
-	std::cout << "Medium Bureaucrat was Created" << std::endl;
+	std::cout << "High Bureaucrat was Created" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -51,7 +50,7 @@ const std::string Bureaucrat::getName(void) const
 	return (this->_name);
 }
 
-unsigned int Bureaucrat::getGrade(void) const
+int Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
 }
@@ -66,7 +65,7 @@ void Bureaucrat::increment(void)
 	}
 	catch (Bureaucrat::GradeLow &e)
 	{
-		std::cout << e.what() << '\n';
+		std::cout << e.what() << std::endl;
 		this->_grade = 1;
 	}
 }
@@ -81,12 +80,24 @@ void Bureaucrat::decrement(void)
 	}
 	catch (Bureaucrat::GradeLow &e)
 	{
-		std::cout << e.what() << '\n';
+		std::cout << e.what() << std::endl;
 		this->_grade = 150;
 	}
 }
+
+
+void Bureaucrat::signForm(const Form &src)
+{
+	if (src.getIfSigned() == true)
+		std::cout << this->getName() << " is already Signed" << src.getName() << std::endl;
+	else
+		std::cout << this->getName() << " can not Sign " << src.getName() << std::endl;
+}
+
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &src)
 {
 	return (os << src.getName() + " has a Grade of " << src.getGrade() << std::endl);
 }
+
+
