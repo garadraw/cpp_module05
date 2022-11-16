@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsimeono <vsimeono@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 13:09:40 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/11/16 15:23:06 by vsimeono         ###   ########.fr       */
+/*   Created: 2022/11/16 13:09:46 by vsimeono          #+#    #+#             */
+/*   Updated: 2022/11/16 14:55:12 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 #include "Form.hpp"
+#include <cstdlib>
 
 class Bureaucrat;
 
-class PresidentialPardonForm: public Form
+class	RobotomyRequestForm : public Form
 {
-		std::string _target;
 
+		std::string _target;
+		
 	public:
-		PresidentialPardonForm();
-		PresidentialPardonForm(const std::string _target);
-		~PresidentialPardonForm();
-		PresidentialPardonForm(const PresidentialPardonForm &src);
-		PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
+
+		RobotomyRequestForm();
+		RobotomyRequestForm( const std::string _target );
+		~RobotomyRequestForm();
+		RobotomyRequestForm(const RobotomyRequestForm& obj);
+		RobotomyRequestForm& operator=(const RobotomyRequestForm& boj);
 
 		void execute(Bureaucrat const &executor) const;
 		std::string getTarget() const;
