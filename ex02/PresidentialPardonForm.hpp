@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:09:40 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/11/16 14:23:43 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:19:54 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Bureaucrat;
 class PresidentialPardonForm: public Form
 {
 		std::string _target;
+
 	public:
 		PresidentialPardonForm();
 		PresidentialPardonForm(const std::string _target);
@@ -31,5 +32,6 @@ class PresidentialPardonForm: public Form
 		void execute(Bureaucrat const &executor) const;
 		std::string getTarget() const;
 };
+
 
 #endif

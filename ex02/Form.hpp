@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:02:45 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/11/16 13:03:53 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:20:21 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ class Form
 		virtual void execute(const Bureaucrat &executor) const = 0;
 };
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &src);
+std::ostream &operator<<(std::ostream &os, const Form &src);
 
 
 #endif
